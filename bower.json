@@ -1,0 +1,17 @@
+{
+  "name": "Rob Node Starter",
+  "version": "0.0.0",
+  "authors": [
+    "JugglerX <rob@jugglerdigital.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "normalize.css": "~3.0.3"
+  }
+}

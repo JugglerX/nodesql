@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Tasks</h1>
+
+<div id="task-add-div">
+  <form action="/tasks/new" id="addTaskForm" method="post" role="form">
+    <label>Task: </label>
+    <input name="taskName" type="text" placeholder="E.g. Code more" class="form-control">
+    <div>
+      <button type="submit"><strong>ADD TASK</strong></button>
+    </div>
+  </form>
+</div>
+
+<div id="task-list">
+  <ul>
+    <% if(tasks) { %>
+    <% tasks.forEach(function(task) { %>
+    <li><%= task.title %></li>
+    <% }) %>
+    <% } %>
+  </ul>
+</div>
+</body>
+</html>
