@@ -10,11 +10,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require("fs");
+
+// Routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var tasks = require('./routes/tasks');
+var champions = require('./routes/champions');
 var todos = require('./routes/todos');
-var fs = require("fs");
+
 // var config = require('./config/config.json');
 // var cache = require('express-redis-cache');
 var app = express();
@@ -40,8 +43,8 @@ app.use(express.static(path.join(__dirname, '')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/', tasks);
 app.use('/', todos);
+app.use('/', champions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

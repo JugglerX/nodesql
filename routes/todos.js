@@ -19,30 +19,40 @@ router.post('/todos', function(req, res) {
 	});
 });
 
-router.put('/todo/:id', function(req, res) {
-	models.Tasks.find({
+router.get('/todo/:id', function(req, res) {
+	models.Todo.find({
 		where: {
 			id: req.params.id
 		}
-	}).then(function(task) {
-		if(task) {
-			task.updateAttributes({
+	}).then(function(todo) {
+		res.render('todo', {todo: todo});
+	});
+});
+
+router.put('/todo/:id', function(req, res) {
+	models.Todo.find({
+		where: {
+			id: req.params.id
+		}
+	}).then(function(todo) {
+		if(todo) {
+			todo.updateAttributes({
 				title: req.body.title,
-				completed: req.body.completed
-			}).then(function(task) {
-				res.send(task);
+				completed: req.body.complete
+			}).then(function(todo) {
+				res.send(todo);
 			});
 		}
 	});
 });
 
-router.delete('/task/:id', function(req, res) {
-	models.Tasks.destroy({
+router.delete('/todo/:id', function(req, res) {
+	models.Todo.destroy({
 		where: {
 			id: req.params.id
 		}
-	}).then(function(task) {
-		res.json(task);
+	}).then(function(todo) {
+		res.json(todo);
 	});
 });
 
