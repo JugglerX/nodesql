@@ -3,18 +3,24 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var fs = require('fs');
-var models = require("../models");
+var models = require('../models/index');
+
 
 
 router.get('/', function(req, res) {
-	models.Tasks.all().then(function(taskList) {
+	models.Tasks.findAll({}).then(function(taskList) {
 		res.render('index', {title: 'Express', tasks: taskList});
 	});
 });
 
+router.get('/champions', function(req, res) {
+	models.Champion.findAll({}).then(function(championList) {
+		res.render('champion', {champions: championList});
+	});
+});
 
 /* GET Champions Data via Riot API */
-router.get('/champion', function(req, res) {
+router.get('/champions/import', function(req, res) {
 	//Lets configure and request
 	request({
 		url: 'https://global.api.pvp.net/api/lol/static-data/oce/v1.2/champion', //URL to hit
@@ -28,9 +34,29 @@ router.get('/champion', function(req, res) {
 		if(error) {
 			console.log(error);
 		} else {
-			console.log(response.statusCode, body);
+			// console.log(response.statusCode, body);
+			// console.log(response);
+			// console.log(body);
+			// console.log(JSON.parse(body));
+			var createChampion = function(obj) {
+				models.Champion.create({
+					championId: obj.id,
+					key: obj.key,
+					name: obj.name,
+					title: obj.title
+				});
+			}
 			var parse = JSON.parse(body);
-			res.render('champion', {result: parse});
+			var champions = parse.data;
+			for (var key in champions) {
+				console.log(key);
+				createChampion(champions[key]);
+				// for (var subkey in champions[key]) {
+					// var value = champions[key][subkey];
+					// console.log(subkey, value);
+				// }
+			}
+			res.json(body);
 		}
 	});
 });

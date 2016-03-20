@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todos</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Todos</h1>
+
+<div id="task-add-div">
+  <form action="/todos" id="addTodoForm" method="post" role="form">
+    <label>Todo: </label>
+    <input name="title" type="text" placeholder="E.g. Code more" class="form-control">
+    <div>
+      <button type="submit"><strong>ADD TODO</strong></button>
+    </div>
+  </form>
+</div>
+
+<div id="task-list">
+  <ul>
+    <% if(todos) { %>
+    <% todos.forEach(function(todo) { %>
+    <li><%= todo.title %></li>
+    <% }) %>
+    <% } %>
+  </ul>
+</div>
+</body>
+</html>

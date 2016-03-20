@@ -13,9 +13,10 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var tasks = require('./routes/tasks');
+var todos = require('./routes/todos');
 var fs = require("fs");
 // var config = require('./config/config.json');
-var cache = require('express-redis-cache');
+// var cache = require('express-redis-cache');
 var app = express();
 // var client = redis.createClient(); //creates a new client
 // client.on('connect', function() {
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, '')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/', tasks);
+app.use('/', todos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
