@@ -18,13 +18,7 @@ var users = require('./routes/users');
 var champions = require('./routes/champions');
 var todos = require('./routes/todos');
 
-// var config = require('./config/config.json');
-// var cache = require('express-redis-cache');
 var app = express();
-// var client = redis.createClient(); //creates a new client
-// client.on('connect', function() {
-//     console.log('connected');
-// });
 // In Express, this lets you call newrelic from within a template.
 app.locals.newrelic = newrelic;
 
@@ -76,55 +70,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-//var Sequelize = require('sequelize')
-//    , sequelize = new Sequelize('node', 'root', 'root', {
-//  dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
-//  port:    3306, // or 5432 (for postgres)
-//});
-//
-//sequelize
-//    .authenticate()
-//    .then(function(err) {
-//      console.log('Connection has been established successfully.');
-//    }, function (err) {
-//      console.log('Unable to connect to the database:', err);
-//    });
-//
-//var User = sequelize.define('user', {
-//  username: Sequelize.STRING,
-//  birthday: Sequelize.DATE
-//});
-//
-//sequelize.sync().then(function() {
-//  return User.create({
-//    username: 'janedoe',
-//    birthday: new Date(1980, 6, 20)
-//  });
-//}).then(function(jane) {
-//  console.log(jane.get({
-//    plain: true
-//  }));
-//});
-
-//var mysql      = require('mysql');
-//var connection = mysql.createConnection({
-//  host     : 'localhost',
-//  user     : 'root',
-//  password : 'root',
-//  database : 'node'
-//});
-//
-//connection.connect();
-//
-//connection.query('SELECT * from TEST', function(err, rows, fields) {
-//  if (!err)
-//    console.log('The solution is: ', rows);
-//  else
-//    console.log('Error while performing Query.');
-//});
-//
-//connection.end();
-
 
 module.exports = app;

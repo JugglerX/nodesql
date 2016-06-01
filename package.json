@@ -1,5 +1,5 @@
 {
-  "name": "riotapm",
+  "name": "nodesql",
   "version": "1.0.0",
   "description": "Scalable Node App Architecture",
   "main": "app.js",
@@ -13,12 +13,12 @@
     "express": "~4.13.1",
     "morgan": "~1.7.0",
     "mysql": "^2.10.2",
+    "newrelic": "^1.28.0",
     "nodemon": "^1.5.0",
     "pg": "^4.5.1",
     "pg-hstore": "^2.3.2",
     "request": "^2.69.0",
     "sequelize": "^3.19.3",
-    "sequelize-cli": "^2.3.1",
     "sequelize-migration-pg-extras": "^1.0.1",
     "serve-favicon": "~2.3.0"
   },
@@ -36,5 +36,5 @@
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "",
-  "license": "ISC"
+  "license": ""
 }
