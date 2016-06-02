@@ -15,24 +15,8 @@
     <script src="public/js/jquery-1.12.0.min.js"></script>
 </head>
 <body>
-<h1>Todos</h1>
-<div id="task-add-div">
-    <form action="/todos" id="addTodoForm" method="post" role="form">
-        <label>Todo: </label>
-        <input name="title" type="text" placeholder="E.g. Code more" class="form-control">
-        <div>
-            <button type="submit"><strong>ADD TODO</strong></button>
-        </div>
-    </form>
-</div>
-<div id="task-list">
-    <ul>
-        <% if(todos) { %>
-        <% todos.forEach(function(todo) { %>
-        <li><a href="todo/<%= todo.id %>"><%= todo.title %></a></li>
-        <% }) %>
-        <% } %>
-    </ul>
-</div>
+<h1>Todo</h1>
+<%= todo.id %>
+<%= todo.title %>
 </body>
 </html>

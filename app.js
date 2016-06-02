@@ -14,7 +14,6 @@ var fs = require("fs");
 
 // Routes
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var champions = require('./routes/champions');
 var todos = require('./routes/todos');
 
@@ -36,7 +35,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/', todos);
 app.use('/', champions);
 
