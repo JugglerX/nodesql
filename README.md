@@ -41,3 +41,4 @@ visit http://localhost:3000
 
 ## Tutorials
 http://mherman.org/blog/2015/10/22/node-postgres-sequelize/
+http://stribny.name/blog/2015/09/authentication-quickstart-with-express-passport-and-sequelize
