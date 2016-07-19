@@ -6,9 +6,7 @@ var fs = require('fs');
 var models = require('../models/index');
 
 router.get('/', function(req, res) {
-	models.Tasks.findAll({}).then(function(taskList) {
-		res.render('index', {title: 'Express', tasks: taskList});
-	});
+	res.render('index', {title: 'Express'});
 });
 
 module.exports = router;

@@ -1,4 +1,4 @@
-var newrelic = require('newrelic');
+//var newrelic = require('newrelic');
 
 var dotenv = require('dotenv');
 dotenv.load();
@@ -26,7 +26,7 @@ var app = express();
 //     console.log('connected');
 // });
 // In Express, this lets you call newrelic from within a template.
-app.locals.newrelic = newrelic;
+//app.locals.newrelic = newrelic;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
